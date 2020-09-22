@@ -49,7 +49,7 @@ export namespace MultisigPublicKey {
     type: 'tendermint/PubKeyMultisigThreshold';
     value: {
       threshold: string;
-      pubkeys: SimplePublicKey.Data[];
+      pubkeys: PublicKey.Data[];
     };
   }
 }

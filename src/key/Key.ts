@@ -7,14 +7,14 @@ import { StdTx } from '../core';
 import { StdSignMsg } from '../core';
 import { AccAddress, AccPubKey, ValAddress, ValPubKey } from '../core';
 
-const BECH32_PUBKEY_DATA_PREFIX = 'eb5ae98721';
+export const BECH32_PUBKEY_DATA_PREFIX = 'eb5ae98721';
 
 /**
  * Gets a raw address from a compressed bytes public key.
  *
  * @param publicKey raw public key
  */
-function addressFromPublicKey(publicKey: Buffer): Buffer {
+export function addressFromPublicKey(publicKey: Buffer): Buffer {
   if (typeof publicKey !== 'object' || !(publicKey instanceof Buffer)) {
     throw new TypeError('parameter must be Buffer that contains public key');
   }
@@ -29,7 +29,7 @@ function addressFromPublicKey(publicKey: Buffer): Buffer {
  *
  * @param publicKey raw public key
  */
-function pubKeyFromPublicKey(publicKey: Buffer): Buffer {
+export function pubKeyFromPublicKey(publicKey: Buffer): Buffer {
   const buffer = Buffer.from(BECH32_PUBKEY_DATA_PREFIX, 'hex');
   const combined = Buffer.concat([buffer, publicKey]);
   return Buffer.from(bech32.toWords(combined));
