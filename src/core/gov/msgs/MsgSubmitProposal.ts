@@ -41,7 +41,7 @@ export class MsgSubmitProposal extends JSONSerializable<
     return {
       type: 'gov/MsgSubmitProposal',
       value: {
-        content: content.toData(),
+        content: content?.toData(),
         initial_deposit: initial_deposit.toData(),
         proposer,
       },
